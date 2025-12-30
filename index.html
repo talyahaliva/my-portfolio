@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טליה חליוה | Talya Haliva - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* פלטת צבעים חדשה - צבעונית אך נקייה */
+            --bg-body: #f4f7fa; /* רקע כללי בהיר מאוד */
+            --text-dark: #2d3748; /* צבע טקסט ראשי */
+            --text-muted: #718096; /* טקסט משני */
+            
+            /* צבעי דגש לפי נושאים */
+            --col-hero-grad: linear-gradient(135deg, #4c1d95 0%, #2563eb 100%); /* סגול-כחול עמוק */
+            --col-skill: #06b6d4; /* טורקיז/ציאן לטכנולוגיה */
+            --col-project: #8b5cf6; /* סגול לפרויקטים */
+            --col-lead: #f97316; /* כתום חם למנהיגות */
+        }
+
+        body {
+            font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 0;
+            padding-bottom: 4rem;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            background: var(--col-hero-grad);
+            color: white;
+            padding: 5rem 2rem 7rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); /* צורה גאומטרית מעניינת */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--col-hero-grad);
+            background: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 950px;
+            margin: -4rem auto 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        section { margin-bottom: 3rem; }
+
+        /* כותרות סקשנים עם אייקונים */
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- CARDS --- */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        /* פס צבע עליון לכרטיסיות לפי סוג */
+        .card.project-card { border-top: 5px solid var(--col-project); }
+        .card.lead-card { border-top: 5px solid var(--col-lead); }
+        .card.edu-card { border-top: 5px solid var(--col-hero-grad); }
+
+        .card h3 { margin-top: 0; font-size: 1.4rem; font-weight: 700; }
+        .card-meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem; display: block; font-weight: 500; }
+        .card ul { padding-right: 1.2rem; color: var(--text-dark); }
+        .card li { margin-bottom: 0.5rem; }
+
+        /* --- SKILLS BADGES (Colorful & Clean) --- */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 1rem; }
+        
+        .badge {
+            background: white;
+            color: var(--col-skill);
+            padding: 0.5rem 1.2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 2px solid var(--col-skill);
+            box-shadow: 0 4px 6px rgba(6, 182, 212, 0.1);
+            transition: 0.2s;
+        }
+
+        .badge.highlight {
+            background: var(--col-skill);
+            color: white;
+        }
+        
+        .badge:hover { transform: scale(1.05); }
+
+        /* --- BUTTONS --- */
+        .btn-project {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1.2rem;
+            background: var(--col-project);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-project:hover {
+            background-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* התאמה למובייל */
+        @media (max-width: 600px) {
+            header { padding: 4rem 1rem 6rem 1rem; clip-path: polygon(0 0, 100% 0, 100% 93%, 50% 100%, 0 93%); }
+            h1 { font-size: 2.5rem; }
+            .container { padding: 0 1rem; margin-top: -3rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>טליה חליוה</h1>
+    <div class="subtitle">Tech Leader | Software Developer | AI Enthusiast</div>
+    
+    <div class="contact-links">
+        <a href="mailto:Thaliva@g.jct.ac.il">📩 Thaliva@g.jct.ac.il</a>
+        <a href="https://linkedin.com/in/talya-haliva-092a07312" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/talyahaliva" target="_blank">💻 GitHub</a>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section class="card">
+        <h2>👋 תקציר מקצועי</h2>
+        <p style="font-size: 1.15rem; font-weight: 400;">
+            סטודנטית שנה ג' למדעי המחשב, המשלבת תשוקה לטכנולוגיה עם יכולות הובלה טבעיות.
+            אני מתמחה בפיתוח פתרונות Full-stack יצירתיים, עם פוקוס על שילוב <strong>בינה מלאכותית (AI)</strong> ופיתוח מובייל.
+            מחפשת אתגר שבו אוכל להביא לידי ביטוי יוזמה, קוד איכותי ועבודת צוות מצוינת.
+        </p>
+    </section>
+
+    <section>
+        <h2>🛠️ ארגז כלים טכנולוגי</h2>
+        <div class="skills-container">
+            <span class="badge highlight">Python 🐍</span>
+            <span class="badge highlight">C++ ⚡</span>
+            <span class="badge highlight">OpenAI API (LLMs) 🤖</span>
+            <span class="badge">Kotlin (Android) 📱</span>
+            <span class="badge">C#</span>
+            <span class="badge">Azure Cloud ☁️</span>
+            <span class="badge">Git</span>
+            <span class="badge">SQL</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>🚀 פרויקט נבחר</h2>
+        <div class="card project-card">
+            <h3>NOME – מערכת AI לזיהוי ותמיכה במצבי חרדה</h3>
+            <span class="card-meta">תפקיד: ראש צוות פיתוח | האקתון 2025</span>
+            <p>פיתוח מערכת מורכבת (Full-stack) לניטור ביומטרי ותמיכה רגשית בזמן אמת.</p>
+            <ul>
+                <li><strong>הובלה:</strong> ניהול צוות רב-תחומי משלב הרעיון ועד למוצר עובד (MVP).</li>
+                <li><strong>AI & Backend:</strong> פיתוח סוכן חכם (AI Agent) מבוסס GPT וארכיטקטורת ענן ב-Azure.</li>
+                <li><strong>Mobile:</strong> פיתוח אפליקציית אנדרואיד נייטיב (Kotlin).</li>
+            </ul>
+            <a href="https://github.com/talyahaliva/mindful-moment-alert" target="_blank" class="btn-project">צפייה בקוד ב-GitHub ←</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>💡 ניסיון והובלה</h2>
+        <div class="card lead-card">
+            <h3>מנהלת קהילה טכנולוגית | DEVLEV</h3>
+            <span class="card-meta">2023 – היום | המרכז האקדמי לב</span>
+            <p>הובלת הקהילה הטכנולוגית בקמפוס. יזום ואספקת תכנים מקצועיים, ארגון האקתונים ומפגשי נטוורקינג בין סטודנטים לתעשייה.</p>
+        </div>
+        <div class="card lead-card">
+            <h3>נציגת סטודנטים ורמ"חית תרבות</h3>
+            <span class="card-meta">2022 – היום | מכון טל</span>
+            <p>עבודה שוטפת מול דרגים ניהוליים בכירים, הובלת פרויקטים חברתיים וארגוניים רחבי היקף.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎓 השכלה</h2>
+        <div class="card edu-card">
+            <h3>B.Sc במדעי המחשב</h3>
+            <span class="card-meta">המרכז האקדמי לב | שנה ג' מתוך ד'</span>
+            <p>קורסים מרכזיים: מבני נתונים, אלגוריתמים, בינה מלאכותית, מערכות הפעלה, תכנות מונחה עצמים.</p>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
